@@ -1,0 +1,913 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pawan Sharma | AI Consultant & Corporate Trainer</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #070b14;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1120px, 92%);
+            margin: auto;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(7, 11, 20, 0.9);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid #1c2638;
+        }
+
+        .nav-container {
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: #ff7900;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: #b9c3d4;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff7900;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background:
+                radial-gradient(circle at 80% 30%, rgba(255,121,0,0.13), transparent 30%),
+                radial-gradient(circle at 20% 80%, rgba(0,150,255,0.08), transparent 25%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            align-items: center;
+            gap: 70px;
+        }
+
+        .small-title {
+            color: #ff7900;
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 7vw, 78px);
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #ff7900;
+        }
+
+        .hero h2 {
+            color: #c9d2df;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: #8f9bad;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 25px;
+            border-radius: 8px;
+            font-weight: 700;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #ff7900;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #e66b00;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            border: 1px solid #ff7900;
+            color: #ff7900;
+        }
+
+        .btn-outline:hover {
+            background: #ff7900;
+            color: white;
+        }
+
+        /* Profile */
+
+        .profile-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile {
+            width: 310px;
+            height: 310px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #131c2d, #0a0f1a);
+            border: 3px solid #ff7900;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow:
+                0 0 30px rgba(255,121,0,0.2),
+                0 0 100px rgba(255,121,0,0.08);
+        }
+
+        .profile span {
+            font-size: 110px;
+        }
+
+        /* ================= COMMON SECTION ================= */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-heading h2 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .section-heading h2 span {
+            color: #ff7900;
+        }
+
+        .section-heading p {
+            color: #7f8b9d;
+        }
+
+        /* ================= ABOUT ================= */
+
+        #about {
+            background: #0d1422;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: #9aa6b8;
+            margin-bottom: 18px;
+            font-size: 17px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .stat {
+            padding: 30px 20px;
+            background: #080d17;
+            border: 1px solid #202c40;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat h3 {
+            color: #ff7900;
+            font-size: 35px;
+        }
+
+        .stat p {
+            color: #8995a8;
+        }
+
+        /* ================= SKILLS ================= */
+
+        .skills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .skill {
+            padding: 12px 20px;
+            border: 1px solid #29364c;
+            background: #0e1625;
+            border-radius: 30px;
+            color: #c5cfdd;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            color: #ff7900;
+            border-color: #ff7900;
+            transform: translateY(-4px);
+        }
+
+        /* ================= PROJECTS ================= */
+
+        #projects {
+            background: #0d1422;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project {
+            background: #080d17;
+            padding: 30px;
+            border-radius: 14px;
+            border: 1px solid #202c40;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-8px);
+            border-color: #ff7900;
+        }
+
+        .project-icon {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .project h3 {
+            margin-bottom: 12px;
+            font-size: 22px;
+        }
+
+        .project p {
+            color: #8995a8;
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            color: #ff7900;
+            font-weight: bold;
+        }
+
+        /* ================= SERVICES ================= */
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service {
+            text-align: center;
+            padding: 35px 25px;
+            background: #0d1422;
+            border: 1px solid #202c40;
+            border-radius: 14px;
+            transition: 0.3s;
+        }
+
+        .service:hover {
+            transform: translateY(-7px);
+            border-color: #ff7900;
+        }
+
+        .service-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .service h3 {
+            margin-bottom: 12px;
+        }
+
+        .service p {
+            color: #8995a8;
+        }
+
+        /* ================= CONTACT ================= */
+
+        #contact {
+            background: #0d1422;
+            text-align: center;
+        }
+
+        .contact-box {
+            max-width: 750px;
+            margin: auto;
+            background: #080d17;
+            border: 1px solid #202c40;
+            border-radius: 15px;
+            padding: 45px 30px;
+        }
+
+        .contact-box p {
+            color: #9aa6b8;
+            margin-bottom: 25px;
+        }
+
+        .contact-details {
+            color: #c8d1de;
+            margin-bottom: 30px;
+            line-height: 2;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #050811;
+            color: #697588;
+            border-top: 1px solid #1a2434;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 120px;
+                padding-bottom: 80px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .profile {
+                width: 240px;
+                height: 240px;
+            }
+
+            .profile span {
+                font-size: 80px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-grid,
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-heading h2 {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero h2 {
+                font-size: 21px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+    <div class="container nav-container">
+
+        <div class="logo">
+            Techi<span>guru</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="container hero-content">
+
+        <div>
+
+            <div class="small-title">
+                👋 HELLO, I'M
+            </div>
+
+            <h1>
+                Pawan <span>Sharma</span>
+            </h1>
+
+            <h2>
+                AI Consultant • Corporate Trainer • Founder of Techiguru
+            </h2>
+
+            <p>
+                I help students, professionals, colleges and organizations
+                build practical technology skills through Artificial
+                Intelligence, Generative AI, software development and
+                real-world projects.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#projects" class="btn btn-primary">
+                    View My Work
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Let's Connect
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="profile-wrapper">
+
+            <div class="profile">
+                <span>👨‍💻</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <h2>About <span>Me</span></h2>
+            <p>Technology • AI • Training • Career Development</p>
+        </div>
+
+        <div class="about-grid">
+
+            <div class="about-text">
+
+                <p>
+                    I am a technology professional, corporate trainer and
+                    Generative AI consultant with 15+ years of experience
+                    across software development, corporate training,
+                    university training and AI consulting.
+                </p>
+
+                <p>
+                    As the founder of Techiguru, I work with students,
+                    freshers, professionals, colleges, companies and
+                    startups to create practical learning experiences
+                    and real-world technology projects.
+                </p>
+
+                <p>
+                    My core areas include Artificial Intelligence,
+                    Generative AI, Machine Learning, Data Science,
+                    Full Stack Development and career-focused training.
+                </p>
+
+            </div>
+
+
+            <div class="stats">
+
+                <div class="stat">
+                    <h3>15+</h3>
+                    <p>Years Experience</p>
+                </div>
+
+                <div class="stat">
+                    <h3>100+</h3>
+                    <p>Training Programs</p>
+                </div>
+
+                <div class="stat">
+                    <h3>50+</h3>
+                    <p>Technology Projects</p>
+                </div>
+
+                <div class="stat">
+                    <h3>10K+</h3>
+                    <p>Learners Reached</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SKILLS ================= -->
+
+<section id="skills">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <h2>My <span>Skills</span></h2>
+            <p>Technologies and areas I work with</p>
+        </div>
+
+        <div class="skills">
+
+            <div class="skill">Artificial Intelligence</div>
+            <div class="skill">Generative AI</div>
+            <div class="skill">Machine Learning</div>
+            <div class="skill">Data Science</div>
+            <div class="skill">Python</div>
+            <div class="skill">Java</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">React.js</div>
+            <div class="skill">Node.js</div>
+            <div class="skill">MongoDB</div>
+            <div class="skill">Full Stack Development</div>
+            <div class="skill">Cloud</div>
+            <div class="skill">DevOps</div>
+            <div class="skill">Cybersecurity</div>
+            <div class="skill">Prompt Engineering</div>
+            <div class="skill">AI Automation</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section id="projects">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <h2>Featured <span>Projects</span></h2>
+            <p>Selected technology and AI projects</p>
+        </div>
+
+
+        <div class="project-grid">
+
+            <div class="project">
+
+                <div class="project-icon">🤖</div>
+
+                <h3>AI Career Assistant</h3>
+
+                <p>
+                    An AI-powered platform for resume improvement,
+                    career guidance, interview preparation and
+                    personalized learning.
+                </p>
+
+                <a href="#" class="project-link">
+                    View Project →
+                </a>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-icon">🎓</div>
+
+                <h3>Student AI Projects</h3>
+
+                <p>
+                    Practical Python and AI projects designed to
+                    help school and college students learn through
+                    real-world problem solving.
+                </p>
+
+                <a href="#" class="project-link">
+                    View Project →
+                </a>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-icon">💼</div>
+
+                <h3>Trainer Marketplace</h3>
+
+                <p>
+                    A platform connecting corporate trainers with
+                    colleges, companies and organizations for
+                    training opportunities.
+                </p>
+
+                <a href="#" class="project-link">
+                    View Project →
+                </a>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-icon">🌐</div>
+
+                <h3>AI Web Applications</h3>
+
+                <p>
+                    Modern web applications integrating AI APIs,
+                    automation, chatbots and intelligent workflows.
+                </p>
+
+                <a href="#" class="project-link">
+                    View Project →
+                </a>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-icon">📊</div>
+
+                <h3>Data Science Solutions</h3>
+
+                <p>
+                    Data analytics, visualization and machine
+                    learning solutions for practical business use cases.
+                </p>
+
+                <a href="#" class="project-link">
+                    View Project →
+                </a>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-icon">⚙️</div>
+
+                <h3>Automation Solutions</h3>
+
+                <p>
+                    AI-powered automation solutions designed to
+                    reduce repetitive work and improve productivity.
+                </p>
+
+                <a href="#" class="project-link">
+                    View Project →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section id="services">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <h2>My <span>Services</span></h2>
+            <p>How I can help organizations and learners</p>
+        </div>
+
+
+        <div class="service-grid">
+
+            <div class="service">
+
+                <div class="service-icon">🤖</div>
+
+                <h3>AI Consulting</h3>
+
+                <p>
+                    Generative AI strategy, AI implementation,
+                    automation and AI-powered product development.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-icon">👨‍🏫</div>
+
+                <h3>Corporate Training</h3>
+
+                <p>
+                    Practical technology training programs for
+                    companies, colleges and educational institutions.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-icon">💻</div>
+
+                <h3>Software Development</h3>
+
+                <p>
+                    Custom web applications, AI applications,
+                    automation tools and technology solutions.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <h2>Let's <span>Connect</span></h2>
+
+            <p>
+                Have a project, training requirement or collaboration idea?
+            </p>
+
+        </div>
+
+
+        <div class="contact-box">
+
+            <p>
+                I am available for AI consulting, corporate training,
+                software development, workshops and technology
+                collaborations.
+            </p>
+
+
+            <div class="contact-details">
+
+                📧 info@techiguru.in
+
+                <br>
+
+                📱 +91 93684 65315
+
+            </div>
+
+
+            <div class="buttons">
+
+                <a
+                    href="mailto:info@techiguru.in"
+                    class="btn btn-primary">
+                    Send Email
+                </a>
+
+                <a
+                    href="https://techiguru.in"
+                    target="_blank"
+                    class="btn btn-outline">
+                    Visit Techiguru
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    © 2026 Pawan Sharma | Techiguru
+
+</footer>
+
+</body>
+</html>
